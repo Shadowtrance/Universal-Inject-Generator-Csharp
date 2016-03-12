@@ -5,7 +5,8 @@ namespace Universal_Inject_Generator
 {
     public static class HexText
     {
-        public static IEnumerable<TResult> SelectPair<TSource, TResult>(this IEnumerable<TSource> list, Func<TSource, TSource, TResult> onPair)
+        public static IEnumerable<TResult> SelectPair<TSource, TResult>(this IEnumerable<TSource> list,
+            Func<TSource, TSource, TResult> onPair)
         {
             TSource odd = default(TSource);
             bool isOdd = true;

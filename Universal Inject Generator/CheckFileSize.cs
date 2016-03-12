@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
-using static Universal_Inject_Generator.Variables;
+
+//NOT USED YET
+//==========================================================================================
 
 namespace Universal_Inject_Generator
 {

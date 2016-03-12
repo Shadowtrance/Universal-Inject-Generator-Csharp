@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Syncfusion.Windows.Forms;
-using static Universal_Inject_Generator.Variables;
 
 namespace Universal_Inject_Generator
 {
@@ -14,15 +13,15 @@ namespace Universal_Inject_Generator
         {
             try
             {
-                string[] cia = Directory.GetFiles(WPath[0], "*.cia");
+                string[] cia = Directory.GetFiles(Variables.WPath[0], "*.cia");
 
-                File.Copy(WPath[0] + "/" + "hs.app", WPath[2] + "/" + "hs.app");
+                File.Copy(Variables.WPath[0] + "/" + "hs.app", Variables.WPath[2] + "/" + "hs.app");
 
                 foreach (Process ctx in cia.Select(file => new Process
                 {
                     StartInfo =
                     {
-                        FileName = WPath[1] + "/" + Tools[1],
+                        FileName = Variables.WPath[1] + "/" + Variables.Tools[1],
                         CreateNoWindow = true,
                         UseShellExecute = false,
                         RedirectStandardOutput = true,
@@ -30,7 +29,7 @@ namespace Universal_Inject_Generator
                     }
                 }))
                 {
-                    ctx.OutputDataReceived += (o, args) => SortOutputHandler(o, args, mainForm);
+                    ctx.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                     ctx.Start();
 
                     ctx.BeginOutputReadLine();
@@ -41,10 +40,10 @@ namespace Universal_Inject_Generator
 
                 //Rename extracted content to inject.app
                 //Delete the extracted content
-                string[] ciacnt = Directory.GetFiles(WPath[2], "ciacnt.0000.*");
+                string[] ciacnt = Directory.GetFiles(Variables.WPath[2], "ciacnt.0000.*");
                 foreach (string Out in ciacnt)
                 {
-                    File.Copy(Out, WPath[2] + "/" + "inject.app", true);
+                    File.Copy(Out, Variables.WPath[2] + "/" + "inject.app", false);
                     File.Delete(Out);
                 }
                 ExtractFiles.Extractfiles(mainForm);

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using Syncfusion.Windows.Forms;
-using static Universal_Inject_Generator.Variables;
 
 namespace Universal_Inject_Generator
 {
@@ -17,17 +16,17 @@ namespace Universal_Inject_Generator
                 {
                     StartInfo =
                     {
-                        FileName = WPath[1] + "/" + Tools[0],
+                        FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
                         Arguments =
-                            @" -x -f " + WPath[2] + "/" + "hs.app" +
-                            " --header " + WPath[2] + "/" + "hs_hdr.bin" +
-                            " --exh " + WPath[2] + "/" + "hs_exhdr.bin" +
-                            " --plain " + WPath[2] + "/" + "hs_plain.bin" +
-                            " --logo " + WPath[2] + "/" + "hs_logo.bin" +
-                            " --exefs " + WPath[2] + "/" + "hs_exefs.bin" +
-                            " --romfs " + WPath[2] + "/" + "hs_romfs.bin"
+                            @" -x -f " + Variables.WPath[2] + "/" + "hs.app" +
+                            " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
+                            " --exh " + Variables.WPath[2] + "/" + "hs_exhdr.bin" +
+                            " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
+                            " --logo " + Variables.WPath[2] + "/" + "hs_logo.bin" +
+                            " --exefs " + Variables.WPath[2] + "/" + "hs_exefs.bin" +
+                            " --romfs " + Variables.WPath[2] + "/" + "hs_romfs.bin"
                     }
                 })
                 {
@@ -41,13 +40,13 @@ namespace Universal_Inject_Generator
                 {
                     StartInfo =
                     {
-                        FileName = WPath[1] + "/" + Tools[0],
+                        FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
                         Arguments =
-                            @" -x -f " + WPath[2] + "/" + "inject.app" +
-                            " --exh " + WPath[2] + "/" + "inject_exhdr.bin" +
-                            " --exefs " + WPath[2] + "/" + "inject_exefs.bin"
+                            @" -x -f " + Variables.WPath[2] + "/" + "inject.app" +
+                            " --exh " + Variables.WPath[2] + "/" + "inject_exhdr.bin" +
+                            " --exefs " + Variables.WPath[2] + "/" + "inject_exefs.bin"
                     }
                 })
                 {
@@ -61,12 +60,12 @@ namespace Universal_Inject_Generator
                 {
                     StartInfo =
                     {
-                        FileName = WPath[1] + "/" + Tools[0],
+                        FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
                         Arguments =
-                            @" -x -f " + WPath[2] + "/" + "hs_exefs.bin" +
-                            " --exefs-dir " + WPath[2] + "/" + "hs_exefs"
+                            @" -x -f " + Variables.WPath[2] + "/" + "hs_exefs.bin" +
+                            " --exefs-dir " + Variables.WPath[2] + "/" + "hs_exefs"
                     }
                 })
                 {
@@ -80,12 +79,12 @@ namespace Universal_Inject_Generator
                 {
                     StartInfo =
                     {
-                        FileName = WPath[1] + "/" + Tools[0],
+                        FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
                         Arguments =
-                            @" -x -f " + WPath[2] + "/" + "inject_exefs.bin" +
-                            " --exefs-dir " + WPath[2] + "/" + "inject_exefs"
+                            @" -x -f " + Variables.WPath[2] + "/" + "inject_exefs.bin" +
+                            " --exefs-dir " + Variables.WPath[2] + "/" + "inject_exefs"
                     }
                 })
                 {

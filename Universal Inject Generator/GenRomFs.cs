@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.IO;
 using Syncfusion.Windows.Forms;
-using static Universal_Inject_Generator.Variables;
 
 namespace Universal_Inject_Generator
 {
@@ -12,21 +11,22 @@ namespace Universal_Inject_Generator
         {
             try
             {
-                Directory.CreateDirectory(WPath[2] + "/" + "dummy_romfs");
+                Directory.CreateDirectory(Variables.WPath[2] + "/" + "dummy_romfs");
 
-                File.Copy(WPath[1] + "/" + "dummy.bin", WPath[2] + "/" + "dummy_romfs" + "/" + "dummy.bin", true);
+                File.Copy(Variables.WPath[1] + "/" + "dummy.bin",
+                    Variables.WPath[2] + "/" + "dummy_romfs" + "/" + "dummy.bin", true);
 
                 //Generate new Romfs
                 using (Process genRomfs = new Process
                 {
                     StartInfo =
                     {
-                        FileName = WPath[1] + "/" + Tools[0],
+                        FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
                         Arguments =
-                            @" -c -t romfs -f " + WPath[2] + "/" + "dummy_romfs.bin" +
-                            " --romfs-dir " + WPath[2] + "/" + "dummy_romfs"
+                            @" -c -t romfs -f " + Variables.WPath[2] + "/" + "dummy_romfs.bin" +
+                            " --romfs-dir " + Variables.WPath[2] + "/" + "dummy_romfs"
                     }
                 })
                 {

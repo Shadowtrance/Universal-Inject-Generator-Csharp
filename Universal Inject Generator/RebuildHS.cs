@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Syncfusion.Windows.Forms;
-using static Universal_Inject_Generator.Variables;
 
 namespace Universal_Inject_Generator
 {
@@ -15,25 +14,25 @@ namespace Universal_Inject_Generator
             try
             {
                 string[] files =
-                    Directory.GetFiles(WPath[0], "*.cia").Select(Path.GetFileNameWithoutExtension).ToArray();
+                    Directory.GetFiles(Variables.WPath[0], "*.cia").Select(Path.GetFileNameWithoutExtension).ToArray();
 
-                if (File.Exists(WPath[2] + "/" + "hs_logo.bin"))
+                if (File.Exists(Variables.WPath[2] + "/" + "hs_logo.bin"))
                 {
                     foreach (Process rebuildHnS in files.Select(file => new Process
                     {
                         StartInfo =
                         {
-                            FileName = WPath[1] + "/" + Tools[0],
+                            FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                             CreateNoWindow = true,
                             UseShellExecute = false,
                             Arguments =
                                 @" -c -t cxi -f " + file + "_inject_no_banner.app" +
-                                " --header " + WPath[2] + "/" + "hs_hdr.bin" +
-                                " --exh " + WPath[2] + "/" + "merge_exhdr.bin" +
-                                " --plain " + WPath[2] + "/" + "hs_plain.bin" +
-                                " --logo " + WPath[2] + "/" + "hs_logo.bin" +
-                                " --exefs " + WPath[2] + "/" + "hs_mod_exefs.bin" +
-                                " --romfs " + WPath[2] + "/" + "dummy_romfs.bin"
+                                " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
+                                " --exh " + Variables.WPath[2] + "/" + "merge_exhdr.bin" +
+                                " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
+                                " --logo " + Variables.WPath[2] + "/" + "hs_logo.bin" +
+                                " --exefs " + Variables.WPath[2] + "/" + "hs_mod_exefs.bin" +
+                                " --romfs " + Variables.WPath[2] + "/" + "dummy_romfs.bin"
                         }
                     }))
                     {
@@ -48,16 +47,16 @@ namespace Universal_Inject_Generator
                     {
                         StartInfo =
                         {
-                            FileName = WPath[1] + "/" + Tools[0],
+                            FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                             CreateNoWindow = true,
                             UseShellExecute = false,
                             Arguments =
                                 @" -c -t cxi -f " + file + "_inject_no_banner.app" +
-                                " --header " + WPath[2] + "/" + "hs_hdr.bin" +
-                                " --exh " + WPath[2] + "/" + "merge_exhdr.bin" +
-                                " --plain " + WPath[2] + "/" + "hs_plain.bin" +
-                                " --exefs " + WPath[2] + "/" + "hs_mod_exefs.bin" +
-                                " --romfs " + WPath[2] + "/" + "dummy_romfs.bin"
+                                " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
+                                " --exh " + Variables.WPath[2] + "/" + "merge_exhdr.bin" +
+                                " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
+                                " --exefs " + Variables.WPath[2] + "/" + "hs_mod_exefs.bin" +
+                                " --romfs " + Variables.WPath[2] + "/" + "dummy_romfs.bin"
                         }
                     }))
                     {
@@ -80,9 +79,9 @@ namespace Universal_Inject_Generator
             try
             {
                 string[] files =
-                    Directory.GetFiles(WPath[0], "*.cia").Select(Path.GetFileNameWithoutExtension).ToArray();
+                    Directory.GetFiles(Variables.WPath[0], "*.cia").Select(Path.GetFileNameWithoutExtension).ToArray();
 
-                if (File.Exists(WPath[2] + "/" + "hs_logo.bin"))
+                if (File.Exists(Variables.WPath[2] + "/" + "hs_logo.bin"))
                 {
                     foreach (string file in files)
                     {
@@ -91,17 +90,17 @@ namespace Universal_Inject_Generator
                         {
                             StartInfo =
                             {
-                                FileName = WPath[1] + "/" + Tools[0],
+                                FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                                 CreateNoWindow = true,
                                 UseShellExecute = false,
                                 Arguments =
                                     @" -c -t cxi -f " + file + "_inject_with_banner.app" +
-                                    " --header " + WPath[2] + "/" + "hs_hdr.bin" +
-                                    " --exh " + WPath[2] + "/" + "merge_exhdr.bin" +
-                                    " --plain " + WPath[2] + "/" + "hs_plain.bin" +
-                                    " --logo " + WPath[2] + "/" + "hs_logo.bin" +
-                                    " --exefs " + WPath[2] + "/" + "hs_mod_banner_exefs.bin" +
-                                    " --romfs " + WPath[2] + "/" + "dummy_romfs.bin"
+                                    " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
+                                    " --exh " + Variables.WPath[2] + "/" + "merge_exhdr.bin" +
+                                    " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
+                                    " --logo " + Variables.WPath[2] + "/" + "hs_logo.bin" +
+                                    " --exefs " + Variables.WPath[2] + "/" + "hs_mod_banner_exefs.bin" +
+                                    " --romfs " + Variables.WPath[2] + "/" + "dummy_romfs.bin"
                             }
                         })
                         {
@@ -120,16 +119,16 @@ namespace Universal_Inject_Generator
                         {
                             StartInfo =
                             {
-                                FileName = WPath[1] + "/" + Tools[0],
+                                FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                                 CreateNoWindow = true,
                                 UseShellExecute = false,
                                 Arguments =
                                     @" -c -t cxi -f " + file + "_inject_with_banner.app" +
-                                    " --header " + WPath[2] + "/" + "hs_hdr.bin" +
-                                    " --exh " + WPath[2] + "/" + "merge_exhdr.bin" +
-                                    " --plain " + WPath[2] + "/" + "hs_plain.bin" +
-                                    " --exefs " + WPath[2] + "/" + "hs_mod_banner_exefs.bin" +
-                                    " --romfs " + WPath[2] + "/" + "dummy_romfs.bin"
+                                    " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
+                                    " --exh " + Variables.WPath[2] + "/" + "merge_exhdr.bin" +
+                                    " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
+                                    " --exefs " + Variables.WPath[2] + "/" + "hs_mod_banner_exefs.bin" +
+                                    " --romfs " + Variables.WPath[2] + "/" + "dummy_romfs.bin"
                             }
                         })
                         {
@@ -140,7 +139,7 @@ namespace Universal_Inject_Generator
                     }
                 }
                 //Reset after process complete.
-                CompleteProgress(mainForm);
+                Variables.CompleteProgress(mainForm);
             }
             catch (Exception exception)
             {

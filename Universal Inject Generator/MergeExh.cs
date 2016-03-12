@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using Syncfusion.Windows.Forms;
-using static Universal_Inject_Generator.Variables;
 
 namespace Universal_Inject_Generator
 {
@@ -16,13 +15,13 @@ namespace Universal_Inject_Generator
                 {
                     StartInfo =
                     {
-                        FileName = WPath[1] + "/" + Tools[2],
+                        FileName = Variables.WPath[1] + "/" + Variables.Tools[2],
                         CreateNoWindow = true,
                         UseShellExecute = false,
                         Arguments =
-                            WPath[2] + "/" + "inject_exhdr.bin " +
-                            WPath[2] + "/" + "hs_exhdr.bin " +
-                            WPath[2] + "/" + "merge_exhdr.bin"
+                            Variables.WPath[2] + "/" + "inject_exhdr.bin " +
+                            Variables.WPath[2] + "/" + "hs_exhdr.bin " +
+                            Variables.WPath[2] + "/" + "merge_exhdr.bin"
                     }
                 })
                 {

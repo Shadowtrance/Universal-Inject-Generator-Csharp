@@ -4,9 +4,6 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using Syncfusion.Windows.Forms;
-using static Universal_Inject_Generator.ProcessFiles;
-using static Universal_Inject_Generator.Variables;
-using static Universal_Inject_Generator.EncCheck;
 
 namespace Universal_Inject_Generator
 {
@@ -24,13 +21,13 @@ namespace Universal_Inject_Generator
             splashThread.Start();
 
             InitializeComponent();
-            MessageBoxSetup();
+            Variables.MessageBoxSetup();
 
 
-            if (!File.Exists("hs.app") || Files.Length == 0)
+            if (!File.Exists("hs.app") || Variables.Files.Length == 0)
             {
                 MessageBoxAdv.Show(this,
-                    @"hs.app is missing... and/or cia file(s) are missing..." + Nline + Nline +
+                    @"hs.app is missing... and/or cia file(s) are missing..." + Variables.Nline + Variables.Nline +
                     @"Please place hs.app and cia files(s) in this folder and restart the program...",
                     @"File(s) Missing!");
 
@@ -42,12 +39,12 @@ namespace Universal_Inject_Generator
                 {
                     Thread.Sleep(2000);
 
-                    CreateDirs();
-                    CopyTools();
+                    Variables.CreateDirs();
+                    Variables.CopyTools();
                     buttonAdv1.BackColor = Color.Yellow;
                     textBoxExt1.BackColor = Color.LightSkyBlue;
-                    File.Copy("hs.app", WPath[0] + "/" + "hs.app", true);
-                    CopyCia();
+                    File.Copy("hs.app", Variables.WPath[0] + "/" + "hs.app", true);
+                    Variables.CopyCia();
 
                     Thread.Sleep(1000);
                 }
@@ -74,7 +71,7 @@ namespace Universal_Inject_Generator
         private void Form1_Load(object sender, EventArgs e)
         {
             //error.txt
-            if (File.Exists(Logs[1])) File.Delete(Logs[1]);
+            if (File.Exists(Variables.Logs[1])) File.Delete(Variables.Logs[1]);
         }
 
         //Cleanup on exit.
@@ -86,16 +83,19 @@ namespace Universal_Inject_Generator
             if (response == DialogResult.Yes)
             {
                 //input directory
-                if (Directory.Exists(WPath[0]) && !IsDirEmpty(WPath[0])) Directory.Delete(WPath[0], true);
+                if (Directory.Exists(Variables.WPath[0]) && !Variables.IsDirEmpty(Variables.WPath[0]))
+                    Directory.Delete(Variables.WPath[0], true);
 
                 //tools directory
-                if (Directory.Exists(WPath[1]) && !IsDirEmpty(WPath[1])) Directory.Delete(WPath[1], true);
+                if (Directory.Exists(Variables.WPath[1]) && !Variables.IsDirEmpty(Variables.WPath[1]))
+                    Directory.Delete(Variables.WPath[1], true);
 
                 //work directory
-                if (Directory.Exists(WPath[2]) || !IsDirEmpty(WPath[2])) Directory.Delete(WPath[2], true);
+                if (Directory.Exists(Variables.WPath[2]) || !Variables.IsDirEmpty(Variables.WPath[2]))
+                    Directory.Delete(Variables.WPath[2], true);
 
                 //log.txt
-                if (File.Exists(Logs[0])) File.Delete(Logs[0]);
+                if (File.Exists(Variables.Logs[0])) File.Delete(Variables.Logs[0]);
             }
             if (response == DialogResult.No)
             {
@@ -108,7 +108,7 @@ namespace Universal_Inject_Generator
         {
             textBoxExt1.SelectionStart = textBoxExt1.Text.Length;
             textBoxExt1.ScrollToCaret();
-            File.WriteAllText(Logs[0], textBoxExt1.Text);
+            File.WriteAllText(Variables.Logs[0], textBoxExt1.Text);
         }
 
         #endregion
@@ -122,13 +122,13 @@ namespace Universal_Inject_Generator
         {
             try
             {
-                if (CheckEncrypted(this))
+                if (EncCheck.CheckEncrypted(this))
                 {
                     buttonAdv1.Enabled = false;
                     buttonAdv2.Enabled = false;
                     buttonAdv1.BackColor = Color.LimeGreen;
                     buttonAdv1.Text = @"Decrypted";
-                    Processfiles(this);
+                    ProcessFiles.Processfiles(this);
                 }
                 else
                 {

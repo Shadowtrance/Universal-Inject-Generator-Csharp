@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using Syncfusion.Windows.Forms;
-using static Universal_Inject_Generator.Variables;
 
 namespace Universal_Inject_Generator
 {
@@ -50,7 +49,7 @@ namespace Universal_Inject_Generator
 
             #endregion
 
-            string file = WPath[0] + "/" + "hs.app";
+            string file = Variables.WPath[0] + "/" + "hs.app";
 
             try
             {
@@ -65,25 +64,30 @@ namespace Universal_Inject_Generator
                     if (value == ncch)
                     {
                         result = true;
-                        AppendTextBox(
-                            @"Correct value found..." + " " + value + " = " + HexStringToString(ncch) + Nline + Nline,
+                        Variables.AppendTextBox(
+                            @"Correct value found..." + " " + value + " = " + HexStringToString(ncch) + Variables.Nline +
+                            Variables.Nline,
                             mainForm);
 
                         MessageBoxAdv.Show(mainForm,
-                            @"Correct value found..." + " " + value + " = " + HexStringToString(ncch) + Nline + Nline +
+                            @"Correct value found..." + " " + value + " = " + HexStringToString(ncch) + Variables.Nline +
+                            Variables.Nline +
                             "hs.app is decrypted, click OK to continue...", @"GOOD!");
                     }
                     if (value != ncch)
                     {
                         result = false;
-                        AppendTextBox(
-                            @"Wrong value found..." + " " + value + " = " + HexStringToString(value) + Nline + Nline +
+                        Variables.AppendTextBox(
+                            @"Wrong value found..." + " " + value + " = " + HexStringToString(value) + Variables.Nline +
+                            Variables.Nline +
                             "Expected value: = " + ncch + " " + HexStringToString(ncch), mainForm);
 
                         MessageBoxAdv.Show(mainForm,
-                            @"Wrong value found..." + " " + value + " = " + HexStringToString(value) + Nline + Nline +
+                            @"Wrong value found..." + " " + value + " = " + HexStringToString(value) + Variables.Nline +
+                            Variables.Nline +
                             "hs.app is still encrypted!" +
-                            Nline + Nline + "Expected value: " + ncch + " = " + HexStringToString(ncch), @"ERROR!");
+                            Variables.Nline + Variables.Nline + "Expected value: " + ncch + " = " +
+                            HexStringToString(ncch), @"ERROR!");
 
                         File.Copy("log.txt", "error.txt", true);
                     }
