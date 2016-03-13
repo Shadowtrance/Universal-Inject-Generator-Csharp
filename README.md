@@ -7,6 +7,10 @@ Csharp version of https://github.com/d0k3/Universal-Inject-Generator
 
 **This is written and built in Visual Studio 2015 Community Edition.**
 
+Uses standard winforms controls as well as Syncfusion.Shared.Base.dll included in http://syncfusion.com/products/communitylicense (Essential Studio for Windows Forms) - current version i use is v13.4.0.53.
+
+---
+
 This will generate inject-ready apps from homebrew CIAs to inject over the Health & Safety app in the 3DS console. The package includes code by MergeExheader (by @Syphurith), CTRtool (by profi200) and 3DStool (by dnasdw). 
 
 This is used in conjunction with most recent (d0k3's) Decrypt9's "Dump Health&Safety" and "Inject Health&Safety" features. You can only inject .apps smaller or equal in size to the original H&S app. Decrypt9 has a safety check build in and won't proceed with bigger ones. Per CIA, two inject apps will be created - with and without banner - the one with a banner is preferable, but may be to large to inject.
