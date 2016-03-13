@@ -18,11 +18,9 @@ namespace Universal_Inject_Generator
         public MainForm()
         {
             Thread splashThread = new Thread(Splash);
-            splashThread.Start();
 
             InitializeComponent();
             Variables.MessageBoxSetup();
-
 
             if (!File.Exists("hs.app") || Variables.Files.Length == 0)
             {
@@ -33,10 +31,21 @@ namespace Universal_Inject_Generator
 
                 Environment.Exit(0);
             }
+            if (Variables.Files.Length > 1)
+            {
+                MessageBoxAdv.Show(this,
+                    @"Too many cia files, currently only supports single cia files." + Variables.Nline + Variables.Nline +
+                    "Please remove cia files until ONE is in this folder and restart the program.", @"Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                Environment.Exit(0);
+            }
             else
             {
                 try
                 {
+                    splashThread.Start();
+
                     Thread.Sleep(2000);
 
                     Variables.CreateDirs();
