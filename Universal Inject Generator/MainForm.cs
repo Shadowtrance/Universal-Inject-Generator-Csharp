@@ -18,20 +18,21 @@ namespace Universal_Inject_Generator
         public MainForm()
         {
             Thread splashThread = new Thread(Splash);
-
+            
             InitializeComponent();
             Variables.MessageBoxSetup();
 
-            if (!File.Exists("hs.app") || Variables.Files.Length == 0)
+            if (!File.Exists("hs.app") || Variables.Cia.Length == 0)
             {
                 MessageBoxAdv.Show(this,
                     @"hs.app is missing... and/or cia file(s) are missing..." + Variables.Nline + Variables.Nline +
                     @"Please place hs.app and cia files(s) in this folder and restart the program...",
                     @"File(s) Missing!");
-
+                
                 Environment.Exit(0);
             }
-            if (Variables.Files.Length > 1)
+            //If more than one cia file is found
+            if (Variables.Cia.Length > 1)
             {
                 MessageBoxAdv.Show(this,
                     @"Too many cia files, currently only supports single cia files." + Variables.Nline + Variables.Nline +

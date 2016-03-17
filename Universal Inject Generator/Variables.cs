@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Syncfusion.Windows.Forms;
 using Universal_Inject_Generator.Properties;
@@ -30,7 +31,7 @@ namespace Universal_Inject_Generator
         public static string[] Logs = {"log.txt", "error.txt", "log_done.txt"};
 
         //cia file check.
-        public static string[] Files = Directory.GetFiles(CurDir, "*.cia");
+        public static FileInfo[] Cia = new DirectoryInfo(CurDir).GetFiles().Where(s => Regex.IsMatch(s.Name, @"\.(cia)$")).ToArray();
 
         //new line.
         public static string Nline = Environment.NewLine;
@@ -93,13 +94,11 @@ namespace Universal_Inject_Generator
         //Copy cia files from root directory to input directory on startup.
         public static void CopyCia()
         {
-            string[] files = Directory.GetFiles(CurDir, "*.cia");
-
-            foreach (string file in files)
+            foreach (FileInfo file in Cia)
             {
-                string destfile = WPath[0] + "/" + Path.GetFileName(file);
+                string destfile = WPath[0] + "/" + Path.GetFileName(file.ToString());
 
-                File.Copy(file, destfile, true);
+                File.Copy(file.ToString(), destfile, true);
             }
         }
 

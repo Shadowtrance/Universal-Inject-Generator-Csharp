@@ -13,11 +13,9 @@ namespace Universal_Inject_Generator
         {
             try
             {
-                string[] cia = Directory.GetFiles(Variables.WPath[0], "*.cia");
-
                 File.Copy(Variables.WPath[0] + "/" + "hs.app", Variables.WPath[2] + "/" + "hs.app");
 
-                foreach (Process ctx in cia.Select(file => new Process
+                foreach (Process ctx in Variables.Cia.Select(file => new Process
                 {
                     StartInfo =
                     {
