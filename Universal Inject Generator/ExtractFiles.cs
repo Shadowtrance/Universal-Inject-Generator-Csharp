@@ -19,6 +19,7 @@ namespace Universal_Inject_Generator
                         FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
+                        RedirectStandardOutput = true,
                         Arguments =
                             @" -x -f " + Variables.WPath[2] + "/" + "hs.app" +
                             " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
@@ -30,7 +31,11 @@ namespace Universal_Inject_Generator
                     }
                 })
                 {
+                    extract.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                     extract.Start();
+
+                    extract.BeginOutputReadLine();
+
                     extract.WaitForExit();
                     extract.Close();
                 }
@@ -43,6 +48,7 @@ namespace Universal_Inject_Generator
                         FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
+                        RedirectStandardOutput = true,
                         Arguments =
                             @" -x -f " + Variables.WPath[2] + "/" + "inject.app" +
                             " --exh " + Variables.WPath[2] + "/" + "inject_exhdr.bin" +
@@ -50,7 +56,11 @@ namespace Universal_Inject_Generator
                     }
                 })
                 {
+                    extract.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                     extract.Start();
+
+                    extract.BeginOutputReadLine();
+
                     extract.WaitForExit();
                     extract.Close();
                 }
@@ -63,13 +73,18 @@ namespace Universal_Inject_Generator
                         FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
+                        RedirectStandardOutput = true,
                         Arguments =
                             @" -x -f " + Variables.WPath[2] + "/" + "hs_exefs.bin" +
                             " --exefs-dir " + Variables.WPath[2] + "/" + "hs_exefs"
                     }
                 })
                 {
+                    extract.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                     extract.Start();
+
+                    extract.BeginOutputReadLine();
+
                     extract.WaitForExit();
                     extract.Close();
                 }
@@ -82,13 +97,18 @@ namespace Universal_Inject_Generator
                         FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
+                        RedirectStandardOutput = true,
                         Arguments =
                             @" -x -f " + Variables.WPath[2] + "/" + "inject_exefs.bin" +
                             " --exefs-dir " + Variables.WPath[2] + "/" + "inject_exefs"
                     }
                 })
                 {
+                    extract.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                     extract.Start();
+
+                    extract.BeginOutputReadLine();
+
                     extract.WaitForExit();
                     extract.Close();
                 }

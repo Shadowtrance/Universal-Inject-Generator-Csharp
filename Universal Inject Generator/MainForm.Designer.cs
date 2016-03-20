@@ -122,7 +122,6 @@ namespace Universal_Inject_Generator
             this.Text = "Universal Inject Generator";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textBoxExt1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

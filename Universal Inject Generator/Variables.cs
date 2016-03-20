@@ -24,17 +24,14 @@ namespace Universal_Inject_Generator
 
         public static string[] Tools =
         {
-            "3dstool.exe", "ctrtool.exe", "MergeExHeader.exe", "ignore_3dstool.txt", "dummy.bin", "log.txt", "error.txt"
-        }; // 0 - 6.
+            "3dstool.exe", "ctrtool.exe", "MergeExHeader.exe", "ignore_3dstool.txt", "dummy.bin", "log.txt"
+        }; // 0 - 5.
 
-        //log files 0 - 2
-        public static string[] Logs = {"log.txt", "error.txt", "log_done.txt"};
+        //log files 0 - 1
+        public static string[] Logs = {"log.txt", "log_done.txt"};
 
         //cia file check.
         public static FileInfo[] Cia = new DirectoryInfo(CurDir).GetFiles().Where(s => Regex.IsMatch(s.Name, @"\.(cia)$")).ToArray();
-
-        //new line.
-        public static string Nline = Environment.NewLine;
 
         #endregion
 
@@ -129,7 +126,7 @@ namespace Universal_Inject_Generator
                 mainForm.textBoxExt1.BeginInvoke(new Action<string, MainForm>(AppendTextBox), value);
                 return;
             }
-            mainForm.textBoxExt1.Text += value + Nline;
+            mainForm.textBoxExt1.Text += value + Environment.NewLine;
         }
 
         #endregion
@@ -144,7 +141,7 @@ namespace Universal_Inject_Generator
             mainForm.buttonAdv1.Text = @"DONE!";
 
             MessageBoxAdv.Show(mainForm, @"Work Complete!", @"DONE!");
-            File.Copy(Logs[0], Logs[2], true);
+            File.Copy(Logs[0], Logs[1], true);
 
             mainForm.Reset(mainForm);
 

@@ -65,28 +65,28 @@ namespace Universal_Inject_Generator
                     {
                         result = true;
                         Variables.AppendTextBox(
-                            @"Correct value found..." + " " + value + " = " + HexStringToString(ncch) + Variables.Nline +
-                            Variables.Nline,
+                            @"Correct value found..." + " " + value + " = " + HexStringToString(ncch) + Environment.NewLine +
+                            Environment.NewLine,
                             mainForm);
 
                         MessageBoxAdv.Show(mainForm,
-                            @"Correct value found..." + " " + value + " = " + HexStringToString(ncch) + Variables.Nline +
-                            Variables.Nline +
+                            @"Correct value found..." + " " + value + " = " + HexStringToString(ncch) + Environment.NewLine +
+                            Environment.NewLine +
                             "hs.app is decrypted, click OK to continue...", @"GOOD!");
                     }
                     if (value != ncch)
                     {
                         result = false;
                         Variables.AppendTextBox(
-                            @"Wrong value found..." + " " + value + " = " + HexStringToString(value) + Variables.Nline +
-                            Variables.Nline +
+                            @"Wrong value found..." + " " + value + " = " + HexStringToString(value) + Environment.NewLine +
+                            Environment.NewLine +
                             "Expected value: = " + ncch + " " + HexStringToString(ncch), mainForm);
 
                         MessageBoxAdv.Show(mainForm,
-                            @"Wrong value found..." + " " + value + " = " + HexStringToString(value) + Variables.Nline +
-                            Variables.Nline +
+                            @"Wrong value found..." + " " + value + " = " + HexStringToString(value) + Environment.NewLine +
+                            Environment.NewLine +
                             "hs.app is still encrypted!" +
-                            Variables.Nline + Variables.Nline + "Expected value: " + ncch + " = " +
+                            Environment.NewLine + Environment.NewLine + "Expected value: " + ncch + " = " +
                             HexStringToString(ncch), @"ERROR!");
 
                         File.Copy("log.txt", "error.txt", true);

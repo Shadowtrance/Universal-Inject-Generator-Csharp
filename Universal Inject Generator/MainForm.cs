@@ -25,7 +25,7 @@ namespace Universal_Inject_Generator
             if (!File.Exists("hs.app") || Variables.Cia.Length == 0)
             {
                 MessageBoxAdv.Show(this,
-                    @"hs.app is missing... and/or cia file(s) are missing..." + Variables.Nline + Variables.Nline +
+                    @"hs.app is missing... and/or cia file(s) are missing..." + Environment.NewLine + Environment.NewLine +
                     @"Please place hs.app and cia files(s) in this folder and restart the program...",
                     @"File(s) Missing!");
                 
@@ -35,7 +35,7 @@ namespace Universal_Inject_Generator
             if (Variables.Cia.Length > 1)
             {
                 MessageBoxAdv.Show(this,
-                    @"Too many cia files, currently only supports single cia files." + Variables.Nline + Variables.Nline +
+                    @"Too many cia files, currently only supports single cia files." + Environment.NewLine + Environment.NewLine +
                     "Please remove cia files until ONE is in this folder and restart the program.", @"Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
 
@@ -76,12 +76,6 @@ namespace Universal_Inject_Generator
         private void buttonAdv2_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //error.txt
-            if (File.Exists(Variables.Logs[1])) File.Delete(Variables.Logs[1]);
         }
 
         //Cleanup on exit.

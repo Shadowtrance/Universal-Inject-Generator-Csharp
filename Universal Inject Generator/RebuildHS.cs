@@ -25,6 +25,7 @@ namespace Universal_Inject_Generator
                             FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                             CreateNoWindow = true,
                             UseShellExecute = false,
+                            RedirectStandardOutput = true,
                             Arguments =
                                 @" -c -t cxi -f " + file + "_inject_no_banner.app" +
                                 " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
@@ -36,7 +37,11 @@ namespace Universal_Inject_Generator
                         }
                     }))
                     {
+                        rebuildHnS.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                         rebuildHnS.Start();
+
+                        rebuildHnS.BeginOutputReadLine();
+
                         rebuildHnS.WaitForExit();
                         rebuildHnS.Close();
                     }
@@ -50,6 +55,7 @@ namespace Universal_Inject_Generator
                             FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                             CreateNoWindow = true,
                             UseShellExecute = false,
+                            RedirectStandardOutput = true,
                             Arguments =
                                 @" -c -t cxi -f " + file + "_inject_no_banner.app" +
                                 " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
@@ -60,7 +66,11 @@ namespace Universal_Inject_Generator
                         }
                     }))
                     {
+                        rebuildHnS.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                         rebuildHnS.Start();
+
+                        rebuildHnS.BeginOutputReadLine();
+
                         rebuildHnS.WaitForExit();
                         rebuildHnS.Close();
                     }
@@ -93,6 +103,7 @@ namespace Universal_Inject_Generator
                                 FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                                 CreateNoWindow = true,
                                 UseShellExecute = false,
+                                RedirectStandardOutput = true,
                                 Arguments =
                                     @" -c -t cxi -f " + file + "_inject_with_banner.app" +
                                     " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
@@ -104,7 +115,11 @@ namespace Universal_Inject_Generator
                             }
                         })
                         {
+                            rebuildHnS.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                             rebuildHnS.Start();
+
+                            rebuildHnS.BeginOutputReadLine();
+
                             rebuildHnS.WaitForExit();
                             rebuildHnS.Close();
                         }
@@ -122,6 +137,7 @@ namespace Universal_Inject_Generator
                                 FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                                 CreateNoWindow = true,
                                 UseShellExecute = false,
+                                RedirectStandardOutput = true,
                                 Arguments =
                                     @" -c -t cxi -f " + file + "_inject_with_banner.app" +
                                     " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
@@ -132,7 +148,11 @@ namespace Universal_Inject_Generator
                             }
                         })
                         {
+                            rebuildHnS.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                             rebuildHnS.Start();
+
+                            rebuildHnS.BeginOutputReadLine();
+
                             rebuildHnS.WaitForExit();
                             rebuildHnS.Close();
                         }

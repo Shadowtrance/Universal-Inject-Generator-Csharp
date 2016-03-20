@@ -22,6 +22,7 @@ namespace Universal_Inject_Generator
                         FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
+                        RedirectStandardOutput = true,
                         Arguments =
                             @" -c -z -t exefs -f " + Variables.WPath[2] + "/" + "hs_mod_exefs.bin" +
                             " --exefs-dir " + Variables.WPath[2] + "/" + "hs_exefs" +
@@ -29,7 +30,11 @@ namespace Universal_Inject_Generator
                     }
                 })
                 {
+                    genExefs.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                     genExefs.Start();
+
+                    genExefs.BeginOutputReadLine();
+
                     genExefs.WaitForExit();
                     genExefs.Close();
                 }
@@ -47,6 +52,7 @@ namespace Universal_Inject_Generator
                         FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
+                        RedirectStandardOutput = true,
                         Arguments =
                             @" -c -z -t exefs -f " + Variables.WPath[2] + "/" + "hs_mod_banner_exefs.bin" +
                             " --exefs-dir " + Variables.WPath[2] + "/" + "hs_exefs" +
@@ -54,7 +60,11 @@ namespace Universal_Inject_Generator
                     }
                 })
                 {
+                    genExefs.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                     genExefs.Start();
+
+                    genExefs.BeginOutputReadLine();
+
                     genExefs.WaitForExit();
                     genExefs.Close();
                 }

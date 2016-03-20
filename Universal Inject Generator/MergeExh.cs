@@ -18,6 +18,7 @@ namespace Universal_Inject_Generator
                         FileName = Variables.WPath[1] + "/" + Variables.Tools[2],
                         CreateNoWindow = true,
                         UseShellExecute = false,
+                        RedirectStandardOutput = true,
                         Arguments =
                             Variables.WPath[2] + "/" + "inject_exhdr.bin " +
                             Variables.WPath[2] + "/" + "hs_exhdr.bin " +
@@ -25,7 +26,11 @@ namespace Universal_Inject_Generator
                     }
                 })
                 {
+                    mergeExh.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                     mergeExh.Start();
+
+                    mergeExh.BeginOutputReadLine();
+
                     mergeExh.WaitForExit();
                     mergeExh.Close();
                 }

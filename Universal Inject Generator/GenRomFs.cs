@@ -24,13 +24,18 @@ namespace Universal_Inject_Generator
                         FileName = Variables.WPath[1] + "/" + Variables.Tools[0],
                         CreateNoWindow = true,
                         UseShellExecute = false,
+                        RedirectStandardOutput = true,
                         Arguments =
                             @" -c -t romfs -f " + Variables.WPath[2] + "/" + "dummy_romfs.bin" +
                             " --romfs-dir " + Variables.WPath[2] + "/" + "dummy_romfs"
                     }
                 })
                 {
+                    genRomfs.OutputDataReceived += (o, args) => Variables.SortOutputHandler(o, args, mainForm);
                     genRomfs.Start();
+
+                    genRomfs.BeginOutputReadLine();
+
                     genRomfs.WaitForExit();
                     genRomfs.Close();
                 }
