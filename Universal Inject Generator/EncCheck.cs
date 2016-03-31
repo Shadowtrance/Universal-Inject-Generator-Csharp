@@ -21,31 +21,61 @@ namespace Universal_Inject_Generator
 
             #region Encrypted file values where NCCH should be. (starting at offset 100)
 
+            #region OLD 3DS
             /*
-                        0004001000020300 JPN v0        o3ds     =       3D 05 FA 0A
-                        0004001000020300 JPN v1024     o3ds     =       14 05 6B D8
-                        0004001000020300 JPN v2050     o3ds     =       8C 97 E8 0D
+                //OLD 3DS
 
-                        0004001000021300 USA v0        o3ds     =       F9 1E 99 BD
-                        0004001000021300 USA v1026     o3ds     =       D8 EA BA 6D
-                        0004001000021300 USA v2051     o3ds     =       55 F2 A8 1F
+                    //0004001000020300 JPN
 
-                        0004001000022300 EUR v0        o3ds     =       EE D7 A0 A3
-                        0004001000022300 EUR v1024     o3ds     =       1F 61 5A 32
-                        0004001000022300 EUR v2050     o3ds     =       3D 63 C2 E7
-                        0004001000022300 EUR v3077     o3ds     =       1C 86 0C 39
+                        v0        =       3D 05 FA 0A
+                        v1024     =       14 05 6B D8
+                        v2050     =       8C 97 E8 0D
 
-                        0004001000026300 CHN v5        o3ds     =       F0 81 15 2B
-                        0004001000027300 KOR v2        o3ds     =       3E E2 2D CE
-                        0004001000028300 TWN v5        o3ds     =       5B 2F 0E 6F
+                    //0004001000021300 USA
 
-                        0004001020020300 JPN v2        n3ds     =       B2 50 58 9C
-                        0004001020020300 JPN v17       n3ds     =       C9 44 C5 DC
+                        v0        =       F9 1E 99 BD
+                        v1026     =       D8 EA BA 6D
+                        v2051     =       55 F2 A8 1F
 
-                        0004001020021300 USA v1        n3ds     =       1B E0 38 06
+                    //0004001000022300 EUR
 
-                        0004001020022300 EUR v1        n3ds     =       C4 BE 3D 55
+                        v0        =       EE D7 A0 A3
+                        v1024     =       1F 61 5A 32
+                        v2050     =       3D 63 C2 E7
+                        v3077     =       1C 86 0C 39
+
+                    //0004001000026300 CHN
+
+                        v5        =       F0 81 15 2B
+
+                    //0004001000027300 KOR
+
+                        v2        =       3E E2 2D CE
+
+                    //0004001000028300 TWN
+
+                        v5        =       5B 2F 0E 6F
             */
+            #endregion
+
+            #region NEW 3DS
+            /*
+                //NEW 3DS
+
+                    //0004001020020300 JPN
+
+                        v2        =       B2 50 58 9C
+                        v17       =       C9 44 C5 DC
+
+                    //0004001020021300 USA
+
+                        v1        =       1B E0 38 06
+
+                    //0004001020022300 EUR
+
+                        v1        =       C4 BE 3D 55
+            */
+            #endregion
 
             #endregion
 
