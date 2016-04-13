@@ -33,7 +33,7 @@ namespace Universal_Inject_Generator
                                 " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
                                 " --logo " + Variables.WPath[2] + "/" + "hs_logo.bin" +
                                 " --exefs " + Variables.WPath[2] + "/" + "hs_mod_exefs.bin" +
-                                " --romfs " + Variables.WPath[2] + "/" + "dummy_romfs.bin"
+                                " --romfs " + Variables.WPath[2] + "/" + "inject_romfs.bin"
                         }
                     }))
                     {
@@ -62,7 +62,7 @@ namespace Universal_Inject_Generator
                                 " --exh " + Variables.WPath[2] + "/" + "merge_exhdr.bin" +
                                 " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
                                 " --exefs " + Variables.WPath[2] + "/" + "hs_mod_exefs.bin" +
-                                " --romfs " + Variables.WPath[2] + "/" + "dummy_romfs.bin"
+                                " --romfs " + Variables.WPath[2] + "/" + "inject_romfs.bin"
                         }
                     }))
                     {
@@ -111,7 +111,7 @@ namespace Universal_Inject_Generator
                                     " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
                                     " --logo " + Variables.WPath[2] + "/" + "hs_logo.bin" +
                                     " --exefs " + Variables.WPath[2] + "/" + "hs_mod_banner_exefs.bin" +
-                                    " --romfs " + Variables.WPath[2] + "/" + "dummy_romfs.bin"
+                                    " --romfs " + Variables.WPath[2] + "/" + "inject_romfs.bin"
                             }
                         })
                         {
@@ -144,7 +144,7 @@ namespace Universal_Inject_Generator
                                     " --exh " + Variables.WPath[2] + "/" + "merge_exhdr.bin" +
                                     " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
                                     " --exefs " + Variables.WPath[2] + "/" + "hs_mod_banner_exefs.bin" +
-                                    " --romfs " + Variables.WPath[2] + "/" + "dummy_romfs.bin"
+                                    " --romfs " + Variables.WPath[2] + "/" + "inject_romfs.bin"
                             }
                         })
                         {

@@ -26,8 +26,7 @@ namespace Universal_Inject_Generator
                             " --exh " + Variables.WPath[2] + "/" + "hs_exhdr.bin" +
                             " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
                             " --logo " + Variables.WPath[2] + "/" + "hs_logo.bin" +
-                            " --exefs " + Variables.WPath[2] + "/" + "hs_exefs.bin" +
-                            " --romfs " + Variables.WPath[2] + "/" + "hs_romfs.bin"
+                            " --exefs " + Variables.WPath[2] + "/" + "hs_exefs.bin"
                     }
                 })
                 {
@@ -52,7 +51,8 @@ namespace Universal_Inject_Generator
                         Arguments =
                             @" -x -f " + Variables.WPath[2] + "/" + "inject.app" +
                             " --exh " + Variables.WPath[2] + "/" + "inject_exhdr.bin" +
-                            " --exefs " + Variables.WPath[2] + "/" + "inject_exefs.bin"
+                            " --exefs " + Variables.WPath[2] + "/" + "inject_exefs.bin" +
+                            "  --romfs " + Variables.WPath[2] + "/" + "inject_romfs.bin"
                     }
                 })
                 {

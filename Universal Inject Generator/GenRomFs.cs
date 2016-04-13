@@ -39,6 +39,11 @@ namespace Universal_Inject_Generator
                     genRomfs.WaitForExit();
                     genRomfs.Close();
                 }
+
+                if (!File.Exists(Variables.WPath[2] + "/" + "inject_romfs.bin"))
+                {
+                    File.Copy(Variables.WPath[2] + "/" + "dummy_romfs.bin", Variables.WPath[2] + "/" + "inject_romfs.bin", true);
+                }
                 MergeExh.MergeExheader(mainForm);
             }
             catch (Exception exception)
