@@ -141,6 +141,7 @@ namespace Universal_Inject_Generator
             mainForm.buttonAdv1.Text = @"DONE!";
 
             MessageBoxAdv.Show(mainForm, @"Work Complete!", @"DONE!");
+            CheckFileSize.FinalSizeCheck(mainForm);
             File.Copy(Logs[0], Logs[1], true);
 
             mainForm.Reset(mainForm);

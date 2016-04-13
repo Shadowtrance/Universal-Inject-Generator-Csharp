@@ -1,6 +1,9 @@
-﻿
-//NOT USED YET
-//==========================================================================================
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using Syncfusion.Windows.Forms;
 
 namespace Universal_Inject_Generator
 {
@@ -57,6 +60,38 @@ namespace Universal_Inject_Generator
             readable = readable / 1024;
             // Return formatted number with suffix
             return readable.ToString("0.### ") + suffix;
+        }
+
+        public static void FinalSizeCheck(MainForm mainForm)
+        {
+            //Hs app original file
+            FileInfo[] hsAppOrig = new DirectoryInfo(Variables.CurDir).GetFiles().Where(s => Regex.IsMatch(s.Name, @"hs.(app)$")).ToArray();
+            long hsAppOrigSize = hsAppOrig[0].Length;
+
+            //Hs Inject app no banner
+            FileInfo[] hsAppInjNb = new DirectoryInfo(Variables.CurDir).GetFiles().Where(s => Regex.IsMatch(s.Name, @"_inject_no_banner.(app)$")).ToArray();
+            long hsAppInjNbSize = hsAppInjNb[0].Length;
+
+            //Hs Inject app with banner
+            FileInfo[] hsAppInjWb = new DirectoryInfo(Variables.CurDir).GetFiles().Where(s => Regex.IsMatch(s.Name, @"_inject_with_banner.(app)$")).ToArray();
+            long hsAppInjWbSize = hsAppInjWb[0].Length;
+
+            Variables.AppendTextBox(
+                string.Format("[+] HS APP ORIGINAL SIZE   :" + "{0,14}", GetBytesReadable(hsAppOrigSize)), mainForm);
+            Variables.AppendTextBox(
+                string.Format("[+] HS INJECT APP (N) SIZE :" + "{0,13}", GetBytesReadable(hsAppInjNbSize)), mainForm);
+            Variables.AppendTextBox(
+                string.Format("[+] HS INJECT APP (B) SIZE : " + "{0,12}" + Environment.NewLine,
+                    GetBytesReadable(hsAppInjWbSize)), mainForm);
+
+            if (hsAppInjNbSize > hsAppOrigSize)
+            {
+                MessageBoxAdv.Show(mainForm, "[!] INJECT APP (N) IS BIGGER THAN HS APP", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (hsAppInjWbSize > hsAppOrigSize)
+            {
+                MessageBoxAdv.Show(mainForm, "[!] INJECT APP (B) IS BIGGER THAN HS APP", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

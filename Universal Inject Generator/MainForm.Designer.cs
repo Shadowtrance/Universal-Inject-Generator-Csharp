@@ -68,7 +68,7 @@ namespace Universal_Inject_Generator
             this.textBoxExt1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.textBoxExt1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxExt1.CornerRadius = 10;
-            this.textBoxExt1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBoxExt1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textBoxExt1.Location = new System.Drawing.Point(12, 69);
             this.textBoxExt1.Metrocolor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(211)))), ((int)(((byte)(212)))));
             this.textBoxExt1.MinimumSize = new System.Drawing.Size(24, 20);
@@ -76,7 +76,8 @@ namespace Universal_Inject_Generator
             this.textBoxExt1.Name = "textBoxExt1";
             this.textBoxExt1.Size = new System.Drawing.Size(323, 139);
             this.textBoxExt1.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
-            this.textBoxExt1.TabIndex = 6;
+            this.textBoxExt1.TabIndex = 4;
+            this.textBoxExt1.TabStop = false;
             this.textBoxExt1.WordWrap = false;
             this.textBoxExt1.TextChanged += new System.EventHandler(this.textBoxExt1_TextChanged);
             // 
