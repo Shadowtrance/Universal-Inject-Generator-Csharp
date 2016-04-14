@@ -16,7 +16,7 @@ namespace Universal_Inject_Generator
                 File.Copy(Variables.WPath[1] + "/" + "dummy.bin",
                     Variables.WPath[2] + "/" + "dummy_romfs" + "/" + "dummy.bin", true);
 
-                //Generate new Romfs
+                //Generate dummy Romfs
                 using (Process genRomfs = new Process
                 {
                     StartInfo =
@@ -43,6 +43,7 @@ namespace Universal_Inject_Generator
                 if (!File.Exists(Variables.WPath[2] + "/" + "inject_romfs.bin"))
                 {
                     File.Copy(Variables.WPath[2] + "/" + "dummy_romfs.bin", Variables.WPath[2] + "/" + "inject_romfs.bin", true);
+                    File.Delete(Variables.WPath[2] + "/" + "dummy_romfs.bin");
                 }
                 MergeExh.MergeExheader(mainForm);
             }

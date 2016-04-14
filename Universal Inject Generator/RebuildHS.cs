@@ -32,7 +32,7 @@ namespace Universal_Inject_Generator
                                 " --exh " + Variables.WPath[2] + "/" + "merge_exhdr.bin" +
                                 " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
                                 " --logo " + Variables.WPath[2] + "/" + "hs_logo.bin" +
-                                " --exefs " + Variables.WPath[2] + "/" + "hs_mod_exefs.bin" +
+                                " --exefs " + Variables.WPath[2] + "/" + "inject_no_banner_exefs.bin" +
                                 " --romfs " + Variables.WPath[2] + "/" + "inject_romfs.bin"
                         }
                     }))
@@ -61,7 +61,7 @@ namespace Universal_Inject_Generator
                                 " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
                                 " --exh " + Variables.WPath[2] + "/" + "merge_exhdr.bin" +
                                 " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
-                                " --exefs " + Variables.WPath[2] + "/" + "hs_mod_exefs.bin" +
+                                " --exefs " + Variables.WPath[2] + "/" + "inject_no_banner_exefs.bin" +
                                 " --romfs " + Variables.WPath[2] + "/" + "inject_romfs.bin"
                         }
                     }))
@@ -83,7 +83,7 @@ namespace Universal_Inject_Generator
             }
         }
 
-        //Rebuild HS Inject App - No Banner
+        //Rebuild HS Inject App - Banner
         public static void RebuildHnS_2(MainForm mainForm)
         {
             try
@@ -110,7 +110,7 @@ namespace Universal_Inject_Generator
                                     " --exh " + Variables.WPath[2] + "/" + "merge_exhdr.bin" +
                                     " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
                                     " --logo " + Variables.WPath[2] + "/" + "hs_logo.bin" +
-                                    " --exefs " + Variables.WPath[2] + "/" + "hs_mod_banner_exefs.bin" +
+                                    " --exefs " + Variables.WPath[2] + "/" + "inject_exefs.bin" +
                                     " --romfs " + Variables.WPath[2] + "/" + "inject_romfs.bin"
                             }
                         })
@@ -143,7 +143,7 @@ namespace Universal_Inject_Generator
                                     " --header " + Variables.WPath[2] + "/" + "hs_hdr.bin" +
                                     " --exh " + Variables.WPath[2] + "/" + "merge_exhdr.bin" +
                                     " --plain " + Variables.WPath[2] + "/" + "hs_plain.bin" +
-                                    " --exefs " + Variables.WPath[2] + "/" + "hs_mod_banner_exefs.bin" +
+                                    " --exefs " + Variables.WPath[2] + "/" + "inject_exefs.bin" +
                                     " --romfs " + Variables.WPath[2] + "/" + "inject_romfs.bin"
                             }
                         })
